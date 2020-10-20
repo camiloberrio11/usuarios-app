@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Usuario from './Usuario'
 import ButtonVolver from './ButtonVolver'
 
@@ -42,12 +42,11 @@ const Usuarios = () => {
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
-            <th scope="col">Acciones</th>
-
+            <th scope="col">Email</th>
           </tr>
         </thead>
         <tbody>
-          {listadoUsuarios.length === 0 ? 'No hay productos' : (
+          {listadoUsuarios.length === 0 ? 'No hay usuarios disponibles' : (
             listadoUsuarios.map(usuario => (<Usuario key={usuario.id} usuario={usuario} />))
           )}
         </tbody>
