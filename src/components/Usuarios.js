@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Usuario from './Usuario'
 import ButtonVolver from './ButtonVolver'
 import { useSelector, useDispatch } from 'react-redux'
@@ -20,6 +20,7 @@ const Usuarios = () => {
   const listadoUsuarios = useSelector(state => state.usuarios.usuarios)
   const error = useSelector(state => state.usuarios.error)
   const cargando = useSelector(state => state.usuarios.loading)
+
   return (
     <>
       <h2 style={{ background: color }} className="text-center my-5">Listado de usuarios</h2>
