@@ -24,7 +24,7 @@ const Usuarios = () => {
     <>
       <h2 style={{ background: color }} className="text-center my-5">Listado de usuarios</h2>
 
-      <button className="btn btn-info btn-sm" onClick={() => { changeColor("black") }} >Cambiar color de titulo</button>
+      <button className="btn btn-info btn-sm" onClick={() => { changeColor('#28abb9') }} >Cambiar color de titulo</button>
       {error ? <p className="font-weight-bold alert alert-danger text-center">Hubo un error </p> : null}
       {cargando ? <p className="text-center">Cargando...</p> : null}
       {listadoUsuarios.length < 1 && (<p>No existen usuarios disponibles</p>)}
