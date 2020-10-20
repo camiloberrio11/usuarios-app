@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Usuario from './Usuario'
 import ButtonVolver from './ButtonVolver'
 import { useSelector, useDispatch } from 'react-redux'
 import { obtenerUsuariosAction } from '../actions/usuariosAction'
+import { useChangeColor } from '../hooks/colorHook'
+
 
 const Usuarios = () => {
   const dispatch = useDispatch()
+  const { changeColor, color } = useChangeColor('#56cc9d')
+
 
   useEffect(() => {
     const cargarUsuarios = () => dispatch(obtenerUsuariosAction())
@@ -18,7 +22,9 @@ const Usuarios = () => {
   const cargando = useSelector(state => state.usuarios.loading)
   return (
     <>
-      <h2 className="text-center my-5">Listado de usuarios</h2>
+      <h2 style={{ background: color }} className="text-center my-5">Listado de usuarios</h2>
+
+      <button className="btn btn-info btn-sm" onClick={() => { changeColor("black") }} >Cambiar color de titulo</button>
       {error ? <p className="font-weight-bold alert alert-danger text-center">Hubo un error </p> : null}
       {cargando ? <p className="text-center">Cargando...</p> : null}
       {listadoUsuarios.length < 1 && (<p>No existen usuarios disponibles</p>)}
