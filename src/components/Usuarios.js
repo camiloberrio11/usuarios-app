@@ -21,6 +21,7 @@ const Usuarios = () => {
       <h2 className="text-center my-5">Listado de usuarios</h2>
       {error ? <p className="font-weight-bold alert alert-danger text-center">Hubo un error </p> : null}
       {cargando ? <p className="text-center">Cargando...</p> : null}
+      {listadoUsuarios.length < 1 && (<p>No existen usuarios disponibles</p>)}
       <table className="table table-striped">
         <thead className="bg-primary table-dark">
           <tr>
@@ -30,12 +31,12 @@ const Usuarios = () => {
           </tr>
         </thead>
         <tbody>
-          {listadoUsuarios.length === 0 ? 'No hay usuarios disponibles' : (
-            listadoUsuarios.map(usuario => ( <Usuario key={usuario.id} usuario={usuario} />))
+          {listadoUsuarios.length > 0 &&  (
+            listadoUsuarios.map(usuario => (<Usuario key={usuario.id} usuario={usuario} />))
           )}
         </tbody>
       </table>
-      {/* <ButtonVolver /> */}
+      <ButtonVolver />
     </>
   )
 }
